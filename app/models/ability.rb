@@ -7,12 +7,8 @@ class Ability
       can :read, Post
     else
       can :create, Post
-      can :update, Post do |post|
-        (post.user_id == user.id)
-      end
-      can :destroy,Post do |post|
-        (post.user_id == user.id)
-      end
+      can :update, Post, active: true, user_id: user.id
+      can :destroy, Post, active: true, user_id: user.id
       can :read, Post
     end
   end
