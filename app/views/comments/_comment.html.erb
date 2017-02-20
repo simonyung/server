@@ -1,0 +1,10 @@
+<%= comment.comment %>
+<br />
+by <%= comment.user.email %>
+<br />
+<% if can? :update, Post %>
+    <% if current_user && @post.editable_by?(current_user) %>
+        <%= link_to "edit", edit_post_comment_path(comment.post, comment) %>
+        <%= link_to "Delete", [comment.post, comment], method: :delete %>
+    <% end %>
+<% end %>

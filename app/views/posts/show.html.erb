@@ -1,2 +1,5 @@
 <h1><%= @post.title %></h1>
 <p><%= @post.content %></p>
+<h2>Comments<%= render @post.comments %></h2>
+<br />
+<h2><%= render partial: "comments/form" %></h2>
