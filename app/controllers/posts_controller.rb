@@ -3,7 +3,7 @@ class PostsController < ApplicationController
  before_action :authenticate_user!, except: [:index, :show]
  load_and_authorize_resource
  def index
-  @posts = Post.all.order("created_at DESC")
+  @posts = Post.all
  end
 
  def show
@@ -28,6 +28,7 @@ class PostsController < ApplicationController
  end
 
  def update
+  @post = current_user.posts.find(params[:id])
   if @post.update(post_params)
    redirect_to @post
   else
@@ -37,9 +38,10 @@ class PostsController < ApplicationController
 
  def destroy
   @post.destroy
-  redirect_to root_path
+  redirect_to posts_path
  end
 
+ private
 
  def post_params
   params.require(:post).permit(:title, :content)

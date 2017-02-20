@@ -4,12 +4,16 @@ class Ability
   def initialize(user)
     if user.blank?
       cannot :manage, :all
-      can :read, Post
+      can :read,    Post
     else
       can :create, Post
-      can :update, Post, active: true, user_id: user.id
-      can :destroy, Post, active: true, user_id: user.id
-      can :read, Post
+      can :update, Post do |post|
+        (post.user_id == user.id)
+      end
+      can :destroy, Post do |post|
+        (post.user_id == user.id)
+      end
+      can :read,    Post
     end
   end
 end
