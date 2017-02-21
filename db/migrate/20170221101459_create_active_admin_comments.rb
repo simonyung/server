@@ -1,5 +1,3 @@
-
-
 class CreateActiveAdminComments < ActiveRecord::Migration::Current
   def self.up
     create_table :active_admin_comments do |t|
@@ -17,5 +15,14 @@ class CreateActiveAdminComments < ActiveRecord::Migration::Current
 
   def self.down
     drop_table :active_admin_comments
+  end
+  def change
+    create_table :comments do |t|
+      t.text :comment
+      t.references :post, foreign_key: true
+      t.references :user, foreign_key: true
+
+      t.timestamps
+    end
   end
 end
