@@ -1,5 +1,4 @@
 <%= simple_form_for @post do |f| %>
-    <%= f.collection_select :category_id, Category.all, :id, :name, {promt: "Choose a category"}%>
     <%= f.input :title %>
     <%= f.input :content %>
     <%= f.input :user_id, as: :hidden, input_html: { :value => current_user.id} %>

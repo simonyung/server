@@ -5,8 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'bootstrap-sass', '~> 3.2.0'
-gem 'autoprefixer-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
@@ -58,3 +56,5 @@ gem 'cancancan'
 gem 'simple_form'
 gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin'
 gem 'inherited_resources', git: 'https://github.com/activeadmin/inherited_resources'
+gem "paperclip", "~> 5.0.0"
+gem 'bootstrap-sass', '~> 3.3.6'

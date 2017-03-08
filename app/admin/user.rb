@@ -3,7 +3,7 @@ ActiveAdmin.register User do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-  permit_params :user_id, :user_email
+# permit_params :list, :of, :attributes, :on, :model
 #
 # or
 #

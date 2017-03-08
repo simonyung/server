@@ -3,14 +3,7 @@ class PostsController < ApplicationController
  before_action :authenticate_user!, except: [:index, :show]
  load_and_authorize_resource
  def index
-  if params[:category].blank?
-
-  @posts = Post.all.order("created_at DESC")
-
-  else
-    @category_id = Category.find_by(name: params[:category]).id
-    @posts = Post.where(category_id: @category_id).order("created_at DESC")
-    end
+  @posts = Post.all
  end
 
  def show
@@ -51,7 +44,7 @@ class PostsController < ApplicationController
  private
 
  def post_params
-  params.require(:post).permit(:title, :content, :category_id)
+  params.require(:post).permit(:title, :content)
  end
 
  def find_post
