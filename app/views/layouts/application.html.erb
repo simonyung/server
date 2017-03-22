@@ -6,28 +6,65 @@
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= csrf_meta_tags %>
 
-  <nav>
-    <%= link_to "Forum" , root_path %>
-    <%= link_to "Photo" , photos_path %>
-    <% unless user_signed_in? %>
-        <%= link_to "Registration", new_user_registration_path %>
-        <%= link_to "Sign In", new_user_session_path %>
-    <% end %>
-    <% if user_signed_in? %>
-        <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
-        <%= link_to "New Post", new_post_path %>
-    <% end %>
+  <nav class="navbar navbar-inverse">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-3">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">This4u</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse-3">
+        <ul class="nav navbar-nav navbar-right">r
+          <% unless user_signed_in? %>
+              <li><%= link_to "Registration", new_user_registration_path %></li>
+              <li>  <%= link_to "Sign In", new_user_session_path %> </li>
+          <% end %>
+          <% if user_signed_in? %>
+              <li>  <%= link_to "Log Out", destroy_user_session_path, method: :delete %> </li>
+              <li>  <%= link_to "New Post", new_post_path %> </li>
+          <% end %>
+          <li>
+            <a class="btn btn-default btn-outline btn-circle"  data-toggle="collapse" href="#nav-collapse3" aria-expanded="false" aria-controls="nav-collapse3">Search</a>
+          </li>
+        </ul>
+        <div class="collapse nav navbar-nav nav-collapse" id="nav-collapse3">
+          <form class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+              <%= form_tag posts_path, :method => 'get' do %>
+                  <%= text_field_tag :search, params[:search] %>
+                  <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+              <% end %>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </nav>
+
 </head>
 
 <body>
-<%= yield %>
-<% if notice %>
-    <p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
-    <p class="alert alert-danger"><%= alert %></p>
-<% end %>
+
+
+<div class="container">
+  <% Category.all.each do |category| %>
+      <%= link_to category.name, posts_path(category: category.name) %>
+
+  <% end%>
+  <%= yield %>
+  <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
+</div>
 </body>
 </html>
