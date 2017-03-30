@@ -18,6 +18,8 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="/">This4u</a>
+        <a class="navbar-brand" href="/posts">Post</a>
+        <a class="navbar-brand" href="/photos">Photo</a>
       </div>
 
       <div class="collapse navbar-collapse" id="navbar-collapse-3">
@@ -28,7 +30,6 @@
           <% end %>
           <% if user_signed_in? %>
               <li>  <%= link_to "Log Out", destroy_user_session_path, method: :delete %> </li>
-              <li>  <%= link_to "New Post", new_post_path %> </li>
           <% end %>
           <li>
             <a class="btn btn-default btn-outline btn-circle"  data-toggle="collapse" href="#nav-collapse3" aria-expanded="false" aria-controls="nav-collapse3">Search</a>
