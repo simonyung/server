@@ -13,5 +13,17 @@ ActiveAdmin.register User do
 #   permitted
 # end
 
+  filter :username
+  filter :email
+  filter :created_at
+
+  index do
+    selectable_column
+    id_column
+    column :username
+    column :email
+    column :created_at
+    actions
+  end
 
 end

@@ -1,6 +1,6 @@
 <%= comment.comment %>
 <br />
-by <%= comment.user.email %>
+by <%= comment.user.username %>
 <br />
 <% if can? :update, Post %>
     <% if current_user && @post.editable_by?(current_user) %>

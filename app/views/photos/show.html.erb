@@ -1,19 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @photo.title %>
+  <strong><h1><%= @photo.title %></h1></strong>
 </p>
 
 <p>
-  <strong>Content:</strong>
-  <%= @photo.content %>
-</p>
-
-<p>
-  <strong>Photo:</strong>
   <%= image_tag @photo.image.url(:medium) %>
 </p>
 
-<%= link_to 'Edit', edit_photo_path(@photo) %> |
+<p>
+  <strong><h3><%= @photo.content %></h3></strong>
+
+</p>
+
 <%= link_to 'Back', photos_path %>

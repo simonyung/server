@@ -10,10 +10,15 @@ class PhotosController < InheritedResources::Base
       render :new
     end
   end
+
+  def show
+
+  end
+
   private
 
-    def photo_params
-      params.require(:photo).permit(:title, :content, :image)
-    end
+  def photo_params
+    params.require(:photo).permit(:title, :content, :image)
+  end
 end
 

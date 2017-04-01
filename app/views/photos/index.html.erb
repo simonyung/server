@@ -14,12 +14,12 @@
               <%= image_tag photo.image.url(:thumb) %>
               <div class="caption">
                 <h3><%= photo.title %></h3>
-                <p class="card-description"><%= photo.content %></p>
+                by <%= photo.user.username %><br><small><i class="fa fa-clock-o"></i><%= photo.created_at %></small>
                 <p><%= button_to 'Show', photo , :method => "get" %></p>
                 <% if can? :update, Photo %>
                     <% if current_user && photo.editable_by?(current_user) %>
-                      <p><%= button_to "edit", edit_photo_path(photo) %></p>
-                      <p><%= button_to "Delete", photo_path(photo), method: :delete %></p>
+                        <p><%= link_to "edit", edit_photo_path(photo) %></p>
+                        <p><%= link_to "Delete", photo_path(photo), method: :delete %></p>
                     <% end %>
                 <% end %>
               </div>
