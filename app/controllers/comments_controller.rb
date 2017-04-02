@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
+
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(params[:comment].permit(:comment, :post))
@@ -10,7 +11,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @post
     else
-      render 'new'
+      render 'posts/show'
     end
   end
 
