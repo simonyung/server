@@ -1,0 +1,4 @@
+<%= simple_form_for ([@photo, @photo.pcomments.build])do |f| %>
+    <%= f.input :pcomment , label: 'Enter your comment' %>
+    <%= f.submit'Create comment' %>
+<% end %>

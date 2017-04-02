@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170401111800) do
+ActiveRecord::Schema.define(version: 20170402082655) do
 
   create_table "admin_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
@@ -43,6 +43,16 @@ ActiveRecord::Schema.define(version: 20170401111800) do
     t.datetime "updated_at",               null: false
     t.index ["post_id"], name: "index_comments_on_post_id", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+  end
+
+  create_table "pcomments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "pcomment",   limit: 65535
+    t.integer  "photo_id"
+    t.integer  "user_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.index ["photo_id"], name: "index_pcomments_on_photo_id", using: :btree
+    t.index ["user_id"], name: "index_pcomments_on_user_id", using: :btree
   end
 
   create_table "photo_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -98,6 +108,8 @@ ActiveRecord::Schema.define(version: 20170401111800) do
 
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "pcomments", "photos"
+  add_foreign_key "pcomments", "users"
   add_foreign_key "photo_comments", "photos"
   add_foreign_key "photo_comments", "users"
 end

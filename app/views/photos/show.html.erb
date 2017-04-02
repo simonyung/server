@@ -13,4 +13,8 @@
 
 </p>
 
+<h2>Comments
+  <%= render @photo.pcomments %></h2>
+<br />
+<h2><%= render partial: "pcomments/form" %></h2>
 <%= link_to 'Back', photos_path %>
