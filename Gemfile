@@ -56,9 +56,12 @@ gem 'cancancan'
 gem 'simple_form'
 gem 'activeadmin', git: 'https://github.com/activeadmin/activeadmin'
 gem 'inherited_resources', git: 'https://github.com/activeadmin/inherited_resources'
-gem "paperclip", "~> 5.0.0"
 gem 'bootstrap-sass', '~> 3.3.6'
 
 gem 'ransack'
 gem 'mailboxer'
 gem 'autoprefixer-rails'
+gem 'paperclip'
+gem 'paperclip-av-transcoder'
+gem "paperclip-ffmpeg", "~> 1.2.0"
+gem 'jw_player_helper'
