@@ -20,6 +20,7 @@
         <a class="navbar-brand" href="/">This4u</a>
         <a class="navbar-brand" href="/posts">Post</a>
         <a class="navbar-brand" href="/photos">Photo</a>
+        <a class="navbar-brand" href="/attachments">Video</a>
       </div>
 
       <div class="collapse navbar-collapse" id="navbar-collapse-3">
@@ -53,12 +54,6 @@
 
 <body>
 
-
-<div class="container">
-  <% Category.all.each do |category| %>
-      <%= link_to category.name, posts_path(category: category.name) %>
-
-  <% end%>
   <%= yield %>
   <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
