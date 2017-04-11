@@ -6,4 +6,9 @@ class Post < ApplicationRecord
   def editable_by?(user)
     user && (user == self.user)
   end
+  def self.search(search)
+    where (["name LIKE ?","%#{search}%"])
+  else
+    all
+  end
 end

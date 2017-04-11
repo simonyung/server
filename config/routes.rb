@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :attachments
+  resources :videos
   resources :photos do
     resources :pcomments
   end

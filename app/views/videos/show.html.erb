@@ -1,0 +1,20 @@
+<%= javascript_include_tag 'swfobject' %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @video.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @video.description %>
+</p>
+
+<p>
+  <strong>Video:</strong>
+  <%= video_player({:file => @video.video.url(:medium), :image => @video.video.url(:thumb)}) %>
+</p>
+
+<%= link_to 'Edit', edit_video_path(@video) %> |
+<%= link_to 'Back', videos_path %>

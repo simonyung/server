@@ -1,4 +1,4 @@
-class Attachment < ApplicationRecord
+class Video < ApplicationRecord
   has_attached_file :video, styles: {
       :medium => {
           :geometry => "640x480",
