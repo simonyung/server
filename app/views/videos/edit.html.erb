@@ -1,6 +1,10 @@
 <h1>Editing Attachment</h1>
 
-<%= render 'form', video: @video %>
+<%= simple_form_for @video do |f| %>
+    <%= f.input :user_id, as: :hidden, input_html: { :value => current_user.id} %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.button :submit %>
+<% end %>
 
-<%= link_to 'Show', @video %> |
-<%= link_to 'Back', videos_path %>
+<%= link_to 'Back', @video %>

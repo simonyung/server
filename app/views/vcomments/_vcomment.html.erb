@@ -1,0 +1,11 @@
+<br />
+<%= vcomment.vcomment %>
+<br />
+<small>by <%= vcomment.user.username %></small>
+<br />
+<% if can? :update, Vcomment %>
+    <% if current_user && vcomment.editable_by?(current_user) %>
+        <%= link_to "edit", edit_video_vcomment_path(vcomment.video, vcomment) %>
+        <%= link_to "Delete", [vcomment.video, vcomment], method: :delete %>
+    <% end %>
+<% end %>

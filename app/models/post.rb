@@ -7,8 +7,9 @@ class Post < ApplicationRecord
     user && (user == self.user)
   end
   def self.search(search)
-    where (["name LIKE ?","%#{search}%"])
-  else
-    all
+    if where (["name LIKE ?","%#{search}%"])
+    else
+      all
+    end
   end
 end

@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :posts, :dependent => :destroy
   has_many :comments, :dependent => :destroy
   has_many :pcomments, :dependent => :destroy
+  has_many :vcomments, :dependent => :destroy
   has_many :photos, :dependent => :destroy
-  has_many :attachments, :dependent => :destroy
+  has_many :videos, :dependent => :destroy
 end

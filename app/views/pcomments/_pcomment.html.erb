@@ -3,8 +3,8 @@
 <br />
 <small>by <%= pcomment.user.username %></small>
 <br />
-<% if can? :update, Photo %>
-    <% if current_user && @photo.editable_by?(current_user) %>
+<% if can? :update, Pcomment %>
+    <% if current_user && pcomment.editable_by?(current_user) %>
         <%= link_to "edit", edit_photo_pcomment_path(pcomment.photo, pcomment) %>
         <%= link_to "Delete", [pcomment.photo, pcomment], method: :delete %>
     <% end %>

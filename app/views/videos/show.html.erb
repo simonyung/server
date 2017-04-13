@@ -16,5 +16,8 @@
   <%= video_player({:file => @video.video.url(:medium), :image => @video.video.url(:thumb)}) %>
 </p>
 
-<%= link_to 'Edit', edit_video_path(@video) %> |
+<h2>Comments
+  <%= render @video.vcomments %></h2>
+<br />
+<h2><%= render partial: "vcomments/form" %></h2>
 <%= link_to 'Back', videos_path %>

@@ -15,6 +15,24 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.forum.table > tbody > tr > td {
+  vertical-align: middle;
+}
+
+.forum .fa {
+  width: 1em;
+  text-align: center;
+}
+
+.forum.table th.cell-stat {
+  width: 6em;
+}
+
+.forum.table th.cell-stat-2x {
+  width: 14em;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -25,11 +43,7 @@ html {
 
 body {
   height: 100%;
-  background: -webkit-linear-gradient(90deg, #1D976C 10%, #93F9B9 90%);
-  background:    -moz-linear-gradient(90deg, #1D976C 10%, #93F9B9 90%);
-  background:     -ms-linear-gradient(90deg, #1D976C 10%, #93F9B9 90%);
-  background:      -o-linear-gradient(90deg, #1D976C 10%, #93F9B9 90%);
-  background:         linear-gradient(90deg, #1D976C 10%, #93F9B9 90%);
+
   font-family: 'Lato', sans-serif;
 }
 
@@ -56,7 +70,7 @@ body {
   letter-spacing: -1px;
   font-size: 2em;
   font-weight: 300;
-  color: #1D976C !important;
+  color: #ffffff !important;
 }
 
 #posts {

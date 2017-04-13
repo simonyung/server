@@ -1,0 +1,4 @@
+<%= simple_form_for ([@video, @video.vcomments.build])do |f| %>
+    <%= f.input :vcomment , label: 'Enter your comment' %>
+    <%= f.submit'Create comment' %>
+<% end %>
