@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 
  def index
   @posts = Post.where(["title LIKE ?","%#{params[:search]}%"])
+  @posts = Post.order("created_at desc").page(params[:page]).per(5)
  end
 
  def show

@@ -16,9 +16,7 @@
         <%= link_to "New Post", new_post_path %>
     <% end %>
 
-    <th class="cell-stat text-center hidden-xs hidden-sm">Topics</th>
-    <th class="cell-stat text-center hidden-xs hidden-sm">Comment</th>
-    <th class="cell-stat-2x hidden-xs hidden-sm">Last Post</th>
+    <th class="cell-stat-2x hidden-xs hidden-sm">Create by</th>
   </tr>
   </thead>
   <% @posts.each do |post| %>
@@ -28,8 +26,6 @@
         <td>
           <h4><a href="#"><%= link_to post.title , post_path(post)%></a><br></h4>
         </td>
-        <td class="text-center hidden-xs hidden-sm"><a href="#">9 542</a></td>
-        <td class="text-center hidden-xs hidden-sm"><a href="#">89 897</a></td>
         <td class="hidden-xs hidden-sm">by <%= post.user.username %><br><small><i class="fa fa-clock-o"></i><%= post.created_at %></small></td>
       </tr>
       <td>
@@ -45,7 +41,7 @@
 
   </tbody>
 </table>
-
+<%= paginate @posts %>
 
 
 <br />

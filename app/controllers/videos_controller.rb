@@ -5,6 +5,7 @@ class VideosController < ApplicationController
   # GET /videos.json
   def index
     @videos = Video.all
+    @videos = Video.order("created_at desc").page(params[:page]).per(9)
   end
 
   # GET /videos/1

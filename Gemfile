@@ -65,3 +65,4 @@ gem 'paperclip'
 gem 'paperclip-av-transcoder'
 gem "paperclip-ffmpeg", "~> 1.2.0"
 gem 'jw_player_helper'
+gem 'kaminari'
