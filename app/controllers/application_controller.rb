@@ -5,12 +5,12 @@ class ApplicationController < ActionController::Base
   def banned?
     if current_user.present? && current_user.banned?
       sign_out current_user
-      flash[:error] = "This account has been suspended...."
+      flash[:error] = "This account has been banned. If you have any question, Please contact admin."
       root_path
     end
   end
 
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :exception, prepend: true
   protected
 
   def configure_permitted_parameters

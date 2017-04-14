@@ -12,7 +12,7 @@ ActiveAdmin.register User do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-
+  permit_params :banned
   filter :username
   filter :email
   filter :created_at
@@ -28,7 +28,7 @@ ActiveAdmin.register User do
   form do |f|
     f.inputs :username
     f.inputs :email
-    f.button :banned
+    f.check_box :banned
     f.actions
   end
 

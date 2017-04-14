@@ -1,6 +1,5 @@
 class Users::SessionsController < Devise::SessionsController
 # before_action :configure_sign_in_params, only: [:create]
-
   # GET /resource/sign_in
   # def new
   #   super
@@ -15,7 +14,7 @@ class Users::SessionsController < Devise::SessionsController
   def after_sign_in_path_for(resource)
     if resource.is_a?(User) && resource.banned?
       sign_out resource
-      flash[:error] = "This account has been suspended for violation of...."
+      flash[:error] = "This account has been banned. If you have any question, Please contact admin."
       root_path
     else
       super
