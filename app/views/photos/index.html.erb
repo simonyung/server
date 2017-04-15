@@ -13,8 +13,13 @@
             <div class="thumbnail">
               <%= image_tag photo.image.url(:thumb) %>
               <div class="caption">
-                <h3><%= photo.title %></h3>
-                by <%= photo.user.username %><br><small><i class="fa fa-clock-o"></i><%= photo.created_at %></small>
+                <h3><%= photo.title %></h3>by
+                <% if !photo.user.blank? %>
+                    <%= photo.user.username %>
+                <% else %>
+                    admin
+                <% end %>
+                <br><small><i class="fa fa-clock-o"></i><%= photo.created_at %></small>
                 <p><%= button_to 'Show', photo , :method => "get" %></p>
                 <% if can? :update, Photo %>
                     <% if current_user && photo.editable_by?(current_user) %>

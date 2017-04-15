@@ -9,4 +9,10 @@ ActiveAdmin.register Post do
   actions :all, :except => [:edit]
  end
 
+ form do |f|
+  f.inputs :title
+  f.inputs :content
+  f.actions
+ end
+
 end

@@ -1,7 +1,13 @@
 <br />
 <%= pcomment.pcomment %>
 <br />
-<small>by <%= pcomment.user.username %></small>
+<small>by
+  <% if !pcomment.user.blank? %>
+      <%= pcomment.user.username %>
+  <% else %>
+      admin
+  <% end %>
+</small>
 <br />
 <% if can? :update, Pcomment %>
     <% if current_user && pcomment.editable_by?(current_user) %>

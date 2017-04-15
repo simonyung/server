@@ -17,6 +17,7 @@ ActiveAdmin.register User do
     column :created_at
     actions
   end
+
   form do |f|
     f.inputs :username
     f.inputs :email

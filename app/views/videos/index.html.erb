@@ -18,8 +18,14 @@
         <td><%= video.title %></td>
         <td><%= video.description %></td>
         <td><%= image_tag video.video.url(:thumb) %></td>
-        <td><%= link_to 'Show', video %></td>
+        <td class="hidden-xs hidden-sm">by
+          <% if !video.user.blank? %>
+              <%= video.user.username %>
+          <% else %>
+              admin
+          <% end %>
 
+        <td><%= link_to 'Show', video %></td>
 
         <% if can? :update, Video %>
             <% if current_user && video.editable_by?(current_user) %>

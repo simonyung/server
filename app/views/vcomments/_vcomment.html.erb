@@ -1,7 +1,13 @@
 <br />
 <%= vcomment.vcomment %>
 <br />
-<small>by <%= vcomment.user.username %></small>
+<small>by
+  <% if !vcomment.user.blank? %>
+      <%= vcomment.user.username %>
+  <% else %>
+      admin
+  <% end %>
+</small>
 <br />
 <% if can? :update, Vcomment %>
     <% if current_user && vcomment.editable_by?(current_user) %>

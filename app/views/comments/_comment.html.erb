@@ -1,7 +1,14 @@
 <br />
 <%= comment.comment %>
 <br />
-<small>by <%= comment.user.username %></small>
+<small>by
+  <% if !comment.user.blank? %>
+      <%= comment.user.username %>
+  <% else %>
+      admin
+  <% end %>
+</small>
+
 <br />
 <% if can? :update, Comment %>
     <% if current_user && comment.editable_by?(current_user) %>

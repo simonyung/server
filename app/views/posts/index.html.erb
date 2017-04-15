@@ -25,7 +25,13 @@
         <td>
           <h4><a href="#"><%= link_to post.title , post_path(post)%></a><br></h4>
         </td>
-        <td class="hidden-xs hidden-sm">by <%= post.user.username %><br><small><i class="fa fa-clock-o"></i><%= post.created_at %></small></td>
+        <td class="hidden-xs hidden-sm">by
+          <% if !post.user.blank? %>
+              <%= post.user.username %>
+          <% else %>
+              admin
+          <% end %>
+          <br><small><i class="fa fa-clock-o"></i><%= post.created_at %></small></td>
       </tr>
       <td>
         <% if can? :update, Post %>
