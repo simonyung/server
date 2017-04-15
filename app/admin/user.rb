@@ -28,6 +28,7 @@ ActiveAdmin.register User do
   form do |f|
     f.inputs :username
     f.inputs :email
+    f.label :Ban_this_user
     f.check_box :banned
     f.actions
   end
