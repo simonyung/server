@@ -9,7 +9,7 @@ class Video < ApplicationRecord
           :geometry => "640x480",
           :format => 'mp4',
       },
-      :thumb => { :geometry => "160x120", :format => 'jpeg', :time => 10}
+      :thumb => {:geometry => "160x120", :format => 'jpeg', :time => 10}
   }, :processors => [:transcoder]
   validates_attachment_content_type :video, content_type: /\Avideo\/.*\Z/
 
@@ -18,9 +18,9 @@ class Video < ApplicationRecord
   end
 
   def self.search(search)
-   if where (["name LIKE ?","%#{search}%"])
-   else
-    all
-   end
+    if where (["name LIKE ?", "%#{search}%"])
+    else
+      all
+    end
   end
 end

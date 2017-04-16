@@ -4,19 +4,19 @@ class Ability
   def initialize(user)
     if user.blank?
       cannot :manage, :all
-      can :read,    Post
-      can :read,    Photo
-      can :read,    Video
-      can :read,    Comment
-      can :read,    Pcomment
-      can :read,    Vcomment
+      can :read, Post
+      can :read, Photo
+      can :read, Video
+      can :read, Comment
+      can :read, Pcomment
+      can :read, Vcomment
     else
       can :create, Post
       can :create, Photo
       can :create, Video
-      can :create,    Comment
-      can :create,    Pcomment
-      can :create,    Vcomment
+      can :create, Comment
+      can :create, Pcomment
+      can :create, Vcomment
       can :update, Post do |post|
         (post.user_id == user.id)
       end
@@ -53,12 +53,12 @@ class Ability
       can :destroy, Vcomment do |vcomment|
         (vcomment.user_id == user.id)
       end
-      can :read,    Post
-      can :read,    Photo
-      can :read,    Video
-      can :read,    Comment
-      can :read,    Pcomment
-      can :read,    Vcomment
+      can :read, Post
+      can :read, Photo
+      can :read, Video
+      can :read, Comment
+      can :read, Pcomment
+      can :read, Vcomment
     end
   end
 end

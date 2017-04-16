@@ -1,6 +1,6 @@
-<br />
+<br/>
 <%= pcomment.pcomment %>
-<br />
+<br/>
 <small>by
   <% if !pcomment.user.blank? %>
       <%= pcomment.user.username %>
@@ -8,7 +8,7 @@
       admin
   <% end %>
 </small>
-<br />
+<br/>
 <% if can? :update, Pcomment %>
     <% if current_user && pcomment.editable_by?(current_user) %>
         <%= link_to "edit", edit_photo_pcomment_path(pcomment.photo, pcomment) %>

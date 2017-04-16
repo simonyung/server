@@ -7,9 +7,9 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= csrf_meta_tags %>
 
@@ -38,7 +38,7 @@
               <li>  <%= link_to "Log Out", destroy_user_session_path, method: :delete %> </li>
           <% end %>
           <li>
-            <a class="btn btn-default btn-outline btn-circle"  data-toggle="collapse" href="#nav-collapse3" aria-expanded="false" aria-controls="nav-collapse3">Search</a>
+            <a class="btn btn-default btn-outline btn-circle" data-toggle="collapse" href="#nav-collapse3" aria-expanded="false" aria-controls="nav-collapse3">Search</a>
           </li>
         </ul>
         <div class="collapse nav navbar-nav nav-collapse" id="nav-collapse3">
@@ -46,7 +46,8 @@
             <div class="form-group">
               <%= form_tag posts_path || photos_path, :method => 'get' do %>
                   <%= text_field_tag :search, params[:search] %>
-                  <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                  <button type="submit" class="btn btn-danger">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
               <% end %>
             </div>
           </form>
@@ -59,27 +60,27 @@
 
 <body>
 
-  <%= yield %>
-  <% if notice %>
-      <p class="alert alert-success"><%= notice %></p>
-  <% end %>
-  <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-  <% end %>
+<%= yield %>
+<% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+<% end %>
 
-  <div class="push"><!– not have any content –></div>
+<div class="push"><!– not have any content –></div>
 
 </body>
 <footer id="myFooter">
   <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
-  <div class="container">
-    <ul>
-      <li><a href="/contactus">Contact us</a></li>
-      <li><a href="/aboutus">About us</a></li>
-      <li><a href="/terms">Terms of service</a></li>
-    </ul>
-    <p class="footer-copyright">Powered by This4You.com © 2017 Copyright</p>
-  </div>
+    <div class="container">
+      <ul>
+        <li><a href="/contactus">Contact us</a></li>
+        <li><a href="/aboutus">About us</a></li>
+        <li><a href="/terms">Terms of service</a></li>
+      </ul>
+      <p class="footer-copyright">Powered by This4You.com © 2017 Copyright</p>
+    </div>
   </nav>
 
 </footer>
