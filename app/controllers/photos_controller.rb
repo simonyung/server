@@ -3,8 +3,7 @@ class PhotosController < InheritedResources::Base
   load_and_authorize_resource
 
   def index
-    @photos = Photo.where(["title LIKE ?", "%#{params[:search]}%"])
-    @photos = Photo.order("created_at desc").page(params[:page]).per(9)
+    @photos = Photo.where(["title LIKE ?","%#{params[:search]}%"]).order("created_at desc").page(params[:page]).per(9)
   end
 
 

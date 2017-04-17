@@ -8,7 +8,7 @@ class Users::PasswordsController < Devise::PasswordsController
   # def create
   #   super
   # end
-
+  protect_from_forgery except: :sign_in
   # GET /resource/password/edit?reset_password_token=abcdef
   # def edit
   #   super

@@ -4,8 +4,7 @@ class VideosController < ApplicationController
   # GET /videos
   # GET /videos.json
   def index
-    @videos = Video.all
-    @videos = Video.order("created_at desc").page(params[:page]).per(9)
+    @videos = Video.where(["title LIKE ?","%#{params[:search]}%"]).order("created_at desc").page(params[:page]).per(9)
   end
 
   # GET /videos/1

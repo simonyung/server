@@ -2,9 +2,9 @@ class HomesController < InheritedResources::Base
 
   def index
     @homes = Home.all
-    @posts = current_user.posts.order("created_at desc").limit(10)
-    @photos = current_user.photos.order("created_at desc").limit(3)
-    @videos = current_user.videos.order("created_at desc").limit(3)
+    @posts = Post.all.order("created_at desc").limit(10)
+    @photos = Photo.all.order("created_at desc").limit(3)
+    @videos = Video.all.order("created_at desc").limit(3)
   end
 
   private
