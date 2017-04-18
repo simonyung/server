@@ -1,10 +1,10 @@
 ActiveAdmin.register User do
 
   controller do
-    actions :all, :except => [:edit, :destroy]
+    actions :all, :except => [:destroy]
   end
 
-  permit_params :banned
+  permit_params :banned, :username, :email
   filter :username
   filter :email
   filter :created_at
@@ -14,6 +14,7 @@ ActiveAdmin.register User do
     id_column
     column :username
     column :email
+    column :banned
     column :created_at
     actions
   end

@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_filter :banned?
+  before_action :banned?
 
   def banned?
     if current_user.present? && current_user.banned?
