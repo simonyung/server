@@ -5,7 +5,6 @@ ActiveAdmin.setup do |config|
   # for each of the active admin pages.
   #
   config.site_title = "Forum"
-
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
   #
@@ -269,7 +268,6 @@ ActiveAdmin.setup do |config|
   # of those filters by default here.
   #
   # config.include_default_association_filters = true
-
   # == Footer
   #
   # By default, the footer shows the current Active Admin version. You can
