@@ -27,6 +27,15 @@ GIT
       railties (>= 3.2, < 5.1)
       responders
 
+GIT
+  remote: https://github.com/galetahub/ckeditor.git
+  revision: 11d3a5b905646c6fd397f7710f95fb9eb29f0865
+  ref: 11d3a5b
+  specs:
+    ckeditor (4.2.2)
+      cocaine
+      orm_adapter (~> 0.5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -88,9 +97,6 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
-    ckeditor (4.2.2)
-      cocaine
-      orm_adapter (~> 0.5.0)
     climate_control (0.1.0)
     cocaine (0.5.8)
       climate_control (>= 0.0.3, < 1.0)
@@ -271,7 +277,7 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3.6)
   byebug
   cancancan
-  ckeditor
+  ckeditor!
   coffee-rails (~> 4.2)
   devise
   inherited_resources!

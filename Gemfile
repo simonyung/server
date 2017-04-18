@@ -67,4 +67,4 @@ gem "paperclip-ffmpeg", "~> 1.2.0"
 gem 'jw_player_helper'
 gem 'kaminari'
 
-gem 'ckeditor'
+gem 'ckeditor', github: 'galetahub/ckeditor', ref: '11d3a5b'
