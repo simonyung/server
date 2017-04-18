@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-
+  actions :all, :except => [:new]
   controller do
     actions :all, :except => [:destroy]
   end
@@ -20,8 +20,6 @@ ActiveAdmin.register User do
   end
 
   form do |f|
-    f.inputs :username
-    f.inputs :email
     f.label :Ban_this_user
     f.check_box :banned
     f.actions
