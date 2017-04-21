@@ -9,6 +9,20 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
+  #mails
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default :charset => "utf-8"
+  ActionMailer::Base.smtp_settings = {
+      :tls => true,
+      :address => "email-smtp.us-west-2.amazonaws.com",
+      :port => 25,
+      :authentication => :login,
+      :user_name => "AKIAIVOBWXTTUGM5WHVA",
+      :password => "Aj05RDfZWN4azCLMUtCsnV5PVRd5+v9/wSrjNJuzLIyA"
+  }
   # Show full error reports.
   config.consider_all_requests_local = true
 
