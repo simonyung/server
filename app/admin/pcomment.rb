@@ -12,5 +12,7 @@ ActiveAdmin.register Pcomment do
     f.actions
   end
 
+  menu :parent => 'Photo'
+
 
 end

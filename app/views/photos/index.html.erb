@@ -3,7 +3,7 @@
 <h1>Photos</h1>
 
 <% if user_signed_in? %>
-    <%= link_to 'New Photo', new_photo_path %>
+    <%= link_to 'New Photo', new_photo_path, :class => "btn btn-warning  btn-lg"  %>
 <% end %>
 <div class="container-fluid cards-row">
   <div class="container">
@@ -23,8 +23,8 @@
                 <p><%= button_to 'Show', photo , :method => "get" %></p>
                 <% if can? :update, Photo %>
                     <% if current_user && photo.editable_by?(current_user) %>
-                        <p><%= link_to "edit", edit_photo_path(photo) %></p>
-                        <p><%= link_to "Delete", photo_path(photo), method: :delete %></p>
+                        <td><%= link_to "edit", edit_photo_path(photo), :class => "btn btn-info" %></td>
+                        <td><%= link_to "Delete", photo_path(photo), method: :delete, :class => "btn btn-info" %></td>
                     <% end %>
                 <% end %>
               </div>

@@ -68,3 +68,4 @@ gem 'jw_player_helper'
 gem 'kaminari'
 
 gem 'ckeditor', github: 'galetahub/ckeditor', ref: '11d3a5b'
+gem 'amazon-ses-mailer'

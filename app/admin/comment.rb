@@ -5,7 +5,7 @@ ActiveAdmin.register Comment do
   controller do
     actions :all, :except => [:edit]
   end
-
+  menu :parent => 'Post'
 
   form do |f|
     f.inputs :post

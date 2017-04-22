@@ -14,4 +14,6 @@ ActiveAdmin.register Video do
     f.actions
   end
 
+  menu :parent => 'Video'
+
 end

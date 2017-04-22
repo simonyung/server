@@ -25,12 +25,12 @@
               admin
           <% end %>
 
-        <td><%= link_to 'Show', video %></td>
+        <td><%= link_to 'Show', video, :class => "btn btn-info" %></td>
 
         <% if can? :update, Video %>
             <% if current_user && video.editable_by?(current_user) %>
-                <td><p><%= link_to "edit", edit_video_path(video) %></p></td>
-                <td><p><%= link_to "Delete", video_path(video), method: :delete, data: {confirm: 'Are you sure?'} %></p>
+                <td><%= link_to "edit", edit_video_path(video), :class => "btn btn-info" %></td>
+                <td><%= link_to "Delete", video_path(video), method: :delete, data: {confirm: 'Are you sure?'}, :class => "btn btn-info" %></td>
                 </td>
             <% end %>
         <% end %>
@@ -41,7 +41,7 @@
 
 <br>
 <% if user_signed_in? %>
-    <%= link_to 'New Video', new_video_path %>
+    <%= link_to 'New Video', new_video_path , :class => "btn btn-warning  btn-lg" %>
 <% end %>
 
 

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :myactivities
   mount Ckeditor::Engine => '/ckeditor'
   resources :aboutus
   resources :terms

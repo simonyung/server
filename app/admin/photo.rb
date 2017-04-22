@@ -13,4 +13,6 @@ ActiveAdmin.register Photo do
     f.actions
   end
 
+  menu :parent => 'Photo'
+
 end

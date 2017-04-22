@@ -1,0 +1,97 @@
+<div class="row">
+
+  <div class="col-md-6">
+    <h1>My activity</h1>
+    <table class="table forum table-striped">
+      <thead>
+      <tr>
+        <th class="cell-stat"></th>
+        <th>
+          <h3>Posts</h3>
+        </th>
+        <th class="cell-stat-2x hidden-xs hidden-sm">Create by</th>
+      </tr>
+      </thead>
+      <% @posts.each do |post| %>
+
+          <% if can? :update, Post %>
+              <% if current_user && post.editable_by?(current_user) %>
+                  <tbody>
+                  <tr>
+                    <td class="text-center"><i class=" text-primary"></i></td>
+                    <td>
+                      <h4><a href="#"><%= link_to post.title, post_path(post) %></a><br></h4>
+                    </td>
+                    <td class="hidden-xs hidden-sm">by
+                      <% if !post.user.blank? %>
+                          <%= post.user.username %>
+                      <% else %>
+                          admin
+                      <% end %>
+                      <br>
+                      <small><i class="fa fa-clock-o"></i><%= post.created_at %></small>
+                    </td>
+                    <td><%= link_to "edit", edit_post_path(post), :class => "btn btn-info" %></td>
+                    <td><%= link_to "Delete", post_path(post), method: :delete, :class => "btn btn-info" %></td>
+                  </tr>
+              <% end %>
+
+          <% end %>
+      <% end %>
+      </tbody>
+    </table>
+
+  </div>
+
+  <div class="col-md-6">
+    <h1>Photo</h1>
+    <% @photos.each do |photo| %>
+        <% if current_user && photo.editable_by?(current_user) %>
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail">
+                <%= image_tag photo.image.url(:thumb) %>
+                <div class="caption">
+                  <h3><%= photo.title %></h3>
+                  <small><i class="fa fa-clock-o"></i><%= photo.created_at %></small>
+                  <table>
+                    <td><%= link_to 'Show', photo, :class => "btn btn-info" %></a></td>
+                    <td><%= link_to "edit", edit_photo_path(photo), :class => "btn btn-info" %></td>
+                    <td><%= link_to "Delete", photo_path(photo), method: :delete, :class => "btn btn-info" %></td>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+        <% end %>
+    <% end %>
+  </div>
+
+
+  <div class="col-md-2 col-md-offset-6 col-sm-6">
+    <h1>Video</h1>
+
+    <table>
+      <% @videos.each do |video| %>
+          <% if can? :update, Video %>
+              <% if current_user && video.editable_by?(current_user) %>
+                  <td>
+                    <div class="thumbnail">
+                      <div class="caption">
+                        <h3><%= video.title %></h3>
+                        <%= image_tag video.video.url(:thumb) %>
+                        <table>
+                          <td><%= link_to 'Show', video, :class => "btn btn-info" %></td>
+                          <td><%= link_to "edit", edit_video_path(video), :class => "btn btn-info" %></td>
+                          <td><%= link_to "Delete", video_path(video), method: :delete, data: {confirm: 'Are you sure?'}, :class => "btn btn-info" %></td>
+                        </table>
+                      </div>
+                    </div>
+                  </td>
+
+              <% end %>
+          <% end %>
+      <% end %>
+    </table>
+  </div>
+
+</div>

@@ -13,4 +13,5 @@ ActiveAdmin.register Vcomment do
   end
 
 
+  menu :parent => 'Video'
 end
